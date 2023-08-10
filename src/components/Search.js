@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Search = () => {
-  const [userName, setUsername] = useState("");
+  const [userName, setUsername] = useState('');
   const [err, setError] = useState(false);
   const [user, setuser] = useState(null);
   const handleKey = (e) => {
-    e.code === "Enter" && handleSearch();
+    e.code === 'Enter' && handleSearch();
   };
   const handleSearch = async () => {};
 

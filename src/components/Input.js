@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import Img from "../img/img.png";
-import Attach from "../img/attach.png";
+import React, { useState } from 'react';
+import Img from '../img/img.png';
+import Attach from '../img/attach.png';
 import {
   arrayUnion,
   doc,
   serverTimestamp,
   Timestamp,
   updateDoc,
-} from "firebase/firestore";
-import { db, storage } from "../firebase";
-import { v4 as uuid } from "uuid";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+} from 'firebase/firestore';
+import { db, storage } from '../utils/firebase';
+import { v4 as uuid } from 'uuid';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 const Input = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [img, setImg] = useState(null);
 
   const handleSend = async () => {};
@@ -31,7 +31,7 @@ const Input = () => {
           <img src={Attach} alt="" />
           <input
             type="file"
-            style={{ display: "none" }}
+            style={{ display: 'none' }}
             id="file"
             onChange={(e) => {
               setImg(e.target.files[0]);
