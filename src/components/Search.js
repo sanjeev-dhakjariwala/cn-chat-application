@@ -11,23 +11,21 @@ const Search = () => {
 
   const handleSelect = () => {};
   return (
-    <div className="searchClass border-b border-gray-400">
-      <div className="searchFormClass p-2">
-        <input
-          className="bg-transparent border-none text-white outline-none placeholder-lightgray"
-          type="text"
-          placeholder="Find a user..."
-          onKeyDown={handleKey}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-          value={userName}
-        />
-      </div>
-      {err && <span>User Not found!!!</span>}
+    <div className="searchClass border-b border-gray-400 p-2">
+      <input
+        className="w-full bg-transparent border-none text-white placeholder-gray-300 focus:outline-none"
+        type="text"
+        placeholder="Find a user..."
+        onKeyDown={handleKey}
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+        value={userName}
+      />
+      {err && <span className="text-red-500">User Not found!!!</span>}
       {user && (
         <div
-          className="userChat p-4 flex items-center gap-10 text-white cursor-pointer hover:bg-indigo-700"
+          className="userChat p-4 flex items-center gap-4 text-white cursor-pointer hover:bg-indigo-700"
           onClick={handleSelect}
         >
           <img

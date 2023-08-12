@@ -6,7 +6,7 @@ import {
   doc,
   serverTimestamp,
   Timestamp,
-  updateDoc,
+  updateDoc
 } from 'firebase/firestore';
 import { db, storage } from '../utils/firebase';
 import { v4 as uuid } from 'uuid';
@@ -18,32 +18,35 @@ const Input = () => {
 
   const handleSend = async () => {};
   return (
-    <>
-      <div className="input">
+    <div className="input h-16 bg-white p-4 flex items-center justify-between shadow-md">
+      <input
+        className="w-full border border-gray-300 rounded py-2 px-3 focus:outline-none focus:border-indigo-500 text-base placeholder-gray-500"
+        type="text"
+        placeholder="Type something..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <div className="flex items-center space-x-4">
+        <label htmlFor="file" className="cursor-pointer">
+          <img className="h-6" src={Attach} alt="Attach" />
+        </label>
         <input
-          type="text"
-          placeholder="Type Something..."
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
+          className="hidden"
+          type="file"
+          id="file"
+          onChange={(e) => setImg(e.target.files[0])}
         />
-        <div className="Send">
-          <img src={Attach} alt="" />
-          <input
-            type="file"
-            style={{ display: 'none' }}
-            id="file"
-            onChange={(e) => {
-              setImg(e.target.files[0]);
-            }}
-          />
-          <label htmlFor="file">
-            <img src={Img} alt="" />
-          </label>
-          <button onClick={handleSend}>Send</button>
-        </div>
+        <label htmlFor="file" className="cursor-pointer">
+          <img className="h-6" src={Img} alt="Image" />
+        </label>
+        <button
+          className="px-4 py-2 bg-indigo-600 text-white rounded focus:outline-none hover:bg-indigo-700"
+          onClick={handleSend}
+        >
+          Send
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,27 +1,29 @@
 import React from 'react';
-import Cam from '../img/cam.png';
-import Add from '../img/add.png';
-import More from '../img/more.png';
+import CamIcon from '../img/cam.png';
+import AddIcon from '../img/add.png';
+import MoreIcon from '../img/more.png';
 import Messages from './Messages';
 import Input from './Input';
 
 const Chat = () => {
   const data = [];
   return (
-    <>
-      <div className="chat flex-2">
-        <div className="chatInfoClass bg-indigo-800 h-16 p-4 flex items-center justify-between text-gray-400">
-          <span>data.user?.displayName</span>
-          <div className="chatIcons flex gap-6">
-            <img className="h-6 cursor-pointer" src={Cam} alt="" />
-            <img className="h-6 cursor-pointer" src={Add} alt="" />
-            <img className="h-6 cursor-pointer" src={More} alt="" />
-          </div>
+    <div className="flex-1 bg-gray-100 flex flex-col">
+      <div className="bg-indigo-800 h-16 p-4 flex items-center justify-between text-gray-400">
+        <span className="text-white text-lg font-semibold">
+          Kosmo Kramer
+        </span>
+        <div className="flex gap-4">
+          <img className="h-6 cursor-pointer" src={CamIcon} alt="Camera" />
+          <img className="h-6 cursor-pointer" src={AddIcon} alt="Add" />
+          <img className="h-6 cursor-pointer" src={MoreIcon} alt="More" />
         </div>
-        <Messages />
-        <Input />
       </div>
-    </>
+      <div className="flex-1 overflow-y-auto">
+        <Messages />
+      </div>
+      <Input />
+    </div>
   );
 };
 
