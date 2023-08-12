@@ -5,8 +5,8 @@ import SideBar from '../components/SideBar';
 const HomePage = () => {
   return (
     <>
-      <div className="bg-sky-500 flex h-[100vh] items-center justify-center">
-        <div className="border-2 border-white rounded-lg flex w-65 h-80 overflow-hidden">
+      <div className="homeClass bg-blue-300 h-screen flex items-center justify-center">
+        <div className="containerClass border border-white rounded-lg w-65 h-80 flex overflow-hidden tablet:w-90">
           <SideBar />
           <Chat />
         </div>

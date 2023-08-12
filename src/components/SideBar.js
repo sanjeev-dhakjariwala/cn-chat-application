@@ -5,13 +5,15 @@ import Chats from './Chats';
 
 const SideBar = () => {
   return (
-    <>
-      <div className="flex bg-violet-950 relative">
+    <div className='bg-indigo-800 relative"'>
+      <div className="flex-1">
         <NavBar />
         <Search />
+      </div>
+      <div className="flex">
         <Chats />
       </div>
-    </>
+    </div>
   );
 };
 

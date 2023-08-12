@@ -9,7 +9,7 @@ const Messages = () => {
   useEffect(() => {}, [data.chatId]);
   return (
     <>
-      <div className="messages">
+      <div className="bg-blue-200 p-4 h-[calc(100%-160px)] overflow-y-scroll">
         {messages.map((m) => (
           <Message message={m} key={m.id} />
         ))}
