@@ -6,23 +6,22 @@ import { useSelector } from 'react-redux';
 
 function App() {
   const currentUser = useSelector((state) => state.user.user);
-  console.log(`CURRENT USER ${currentUser.displayName}`);
+  console.log(`CURRENT USER ${currentUser?.displayName}`);
   
   useEffect(() => {
 
   },[currentUser])
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={currentUser.displayName ? <HomePage /> : <Login />}
-          ></Route>
-          <Route path="login" element={<Login />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={currentUser?.displayName ? <HomePage /> : <Login />}
+        ></Route>
+        <Route path="login" element={<Login />}></Route>
+        <Route element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

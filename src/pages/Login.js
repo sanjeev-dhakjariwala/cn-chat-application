@@ -8,12 +8,15 @@ import { setUser } from '../slices/userSlice';
 
 const Login = () => {
   const [err, setErr] = useState(false);
+  const [email, setEmail] = useState('george@seinfeld.com');
+  const [password, setPassword] = useState('123456');
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const email = e.target[0].value;
     const password = e.target[1].value;
 
@@ -42,7 +45,7 @@ const Login = () => {
     return () => {
       unsub();
     };
-  },[]);
+  }, []);
   return (
     <div className="flex items-center justify-center h-screen bg-blue-300">
       <div className="bg-white p-8 rounded-2xl flex flex-col gap-4 items-center w-96">
@@ -53,11 +56,13 @@ const Login = () => {
             className="px-4 py-3 border-b-2 border-blue-300 w-full placeholder-gray-700"
             type="email"
             placeholder="Email"
+            value={email}
           />
           <input
             className="px-4 py-3 border-b-2 border-blue-300 w-full placeholder-gray-700"
             type="password"
             placeholder="Password"
+            value={password}
           />
           <button className="bg-blue-600 text-white py-2 px-4 font-bold rounded cursor-pointer">
             Sign in

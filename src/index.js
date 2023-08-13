@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { configureStore } from '@reduxjs/toolkit';
@@ -9,16 +9,16 @@ import userSlice from './slices/userSlice';
 
 const store = configureStore({
   reducer: {
-    chat: chatSlice,
-    user: userSlice
+    chat: chatSlice.reducer, // Access the reducer function of the slice
+    user: userSlice.reducer
   }
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
