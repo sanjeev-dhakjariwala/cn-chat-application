@@ -1,15 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { db } from '../utils/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
+import { useSelector } from 'react-redux';
+import { ChatContext } from '../context/ChatContext';
 
 const Chats = () => {
-  const [chats, setChat] = useState([]);
+  const currentUser = useSelector((state) => state.user.user);
+
+  const [chats, setChats] = useState([]);
+  const { dispatch } = useContext(ChatContext);
 
   useEffect(() => {
-    
-  }, []);
+    const getChats = () => {
+      const unsub = onSnapshot(doc(db, 'userChats', currentUser.uid), (doc) => {
+        setChats(doc.data());
+      });
 
-  const handleSelect = () => {};
+      return () => {
+        unsub();
+      };
+    };
+
+    currentUser.uid && getChats();
+  }, [currentUser.uid]);
+
+  const handleSelect = (u) => {
+    dispatch({ type: 'CHANGE_USER', payload: u });
+  };
+
   return (
     <div className="chats overflow-y-auto">
       {Object.entries(chats)

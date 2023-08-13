@@ -24,7 +24,7 @@ const NavBar = () => {
       <span className="logoClass text-xl font-semibold">Insta Chat</span>
       <div className="flex items-center space-x-2">
         <img
-          src={currentUser?.photoUrl}
+          src={currentUser?.photoURL}
           alt="User"
           className="h-10 w-10 rounded-full object-cover"
         />

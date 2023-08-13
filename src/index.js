@@ -6,10 +6,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import chatSlice from './slices/chatSlice';
 import userSlice from './slices/userSlice';
+import { ChatContextProvider } from './context/ChatContext';
 
 const store = configureStore({
   reducer: {
-    chat: chatSlice.reducer, // Access the reducer function of the slice
+    chat: chatSlice, // Access the reducer function of the slice
     user: userSlice.reducer
   }
 });
@@ -17,7 +18,9 @@ const store = configureStore({
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ChatContextProvider>
+        <App />
+      </ChatContextProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

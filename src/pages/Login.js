@@ -36,7 +36,7 @@ const Login = () => {
         uid: user?.uid,
         displayName: user?.displayName,
         email: user?.email,
-        photoUrl: user?.photoURL
+        photoURL: user?.photoURL
         // Add any other necessary properties
       };
       dispatch(setUser(serializableUser));
