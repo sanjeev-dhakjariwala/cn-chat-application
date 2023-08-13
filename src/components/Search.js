@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
+import { db, storage } from '../utils/firebase';
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  setDoc,
+  doc,
+  updateDoc,
+  serverTimestamp,
+  getDoc
+} from 'firebase/firestore';
 
 const Search = () => {
   const [userName, setUsername] = useState('');
   const [err, setError] = useState(false);
   const [user, setuser] = useState(null);
+
   const handleKey = (e) => {
     e.code === 'Enter' && handleSearch();
   };
-  const handleSearch = async () => {};
+  //Handles Search
+  const handleSearch = async () => {
+    const query = query(collection(db, 'userCollection'));
+    try {
+    } catch (error) {
+      setError(true);
+    }
+  };
 
   const handleSelect = () => {};
+
   return (
     <div className="searchClass border-b border-gray-400 p-2">
       <input

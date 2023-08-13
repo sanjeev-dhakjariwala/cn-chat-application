@@ -5,7 +5,9 @@ import { doc, onSnapshot } from 'firebase/firestore';
 const Chats = () => {
   const [chats, setChat] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    
+  }, []);
 
   const handleSelect = () => {};
   return (

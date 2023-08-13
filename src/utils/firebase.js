@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCb-xy1klg0ilqYaDNNac9p5XE9UsjLsWY",
@@ -18,3 +19,13 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const storage = getStorage();
 export const db = getFirestore();
+
+/* onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, dispatch setUser action here
+
+  } else {
+    // User is signed out, dispatch logout action here
+    
+  }
+}); */
