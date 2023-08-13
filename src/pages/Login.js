@@ -14,11 +14,20 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const setEmailFun = (event) => {
+    setEmail(event.target.value);
+  }
+  const setPasswordFun = (event) => {
+    setPassword(event.target.value);
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const email = e.target[0].value;
-    const password = e.target[1].value;
+    const emailInput = e.target[0].value;
+    const passwordInput = e.target[1].value;
+
+    setEmail(emailInput);
+    setPassword(passwordInput);
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -57,12 +66,14 @@ const Login = () => {
             type="email"
             placeholder="Email"
             value={email}
+            onChange={setEmailFun}
           />
           <input
             className="px-4 py-3 border-b-2 border-blue-300 w-full placeholder-gray-700"
             type="password"
             placeholder="Password"
             value={password}
+            onChange={setPasswordFun}
           />
           <button className="bg-blue-600 text-white py-2 px-4 font-bold rounded cursor-pointer">
             Sign in
